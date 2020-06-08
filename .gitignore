@@ -9,7 +9,6 @@
 
 /tfplan
 /*.tfplan
-/test-provider.tf
 
 .DS_Store
 .history
