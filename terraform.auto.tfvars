@@ -1,6 +1,6 @@
 base_name           = "dl"
 name                = "test-nsg1"
-resource_group_name = "development"
+resource_group_name = "terraform-cloud"
 
 network_security_rules = [
   {
