@@ -1,0 +1,17 @@
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files in root directory
+/*.tfvars
+/*.tfvars.json
+
+/tfplan
+/*.tfplan
+/test-provider.tf
+
+.DS_Store
+.history
