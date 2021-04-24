@@ -35,34 +35,11 @@ This component depends on the following resources :
 
 ### Output
 
-| Name            | Type   | description      |
-| ----------------| ------ | ---------------- |
-| id              | string | Network Security Group id.       |
-| name            | string | Network Security Group name.     |
-| resource        | object | Network Security Group resource. |
-
-### Using it in a blueprint
-
-IMPORTANT: We periodically release versions for the components. Since, master branch may have breaking changes, best practice would be to use a released version in form of a tag (e.g. ?ref=x.y.z)
-
-```terraform
-module "network_security_group" {
-  source = "git::https://<YOUR_VCS_URL>/azure-components/azr-network-security-group?ref=v0.1.0"
-  # or use the SSH link
-  #source = "git::username@example.com:<YOUR_VCS_SCP_LINK>/azure-components/azr-network-security-group?ref=v0.1.0"
-
-  base_name                   = var.base_name
-  name                        = var.vnet_name
-  resource_group_name         = var.resource_group_name
-  network_security_rules      = var.network_security_rules
-  location                    = var.location
-  tags                        = var.tags
-  log_analytics_workspace_id = var.log_analytics_workspace_id
-  log_retention_days         = var.log_retention_days # optional
-}
-```
-
-Sample values can be seen in [tests/input.tfvars](tests/input.tfvars)
+| Name     | Type   | description                      |
+|----------|--------|----------------------------------|
+| id       | string | Network Security Group id.       |
+| name     | string | Network Security Group name.     |
+| resource | object | Network Security Group resource. |
 
 ## Testing
 
