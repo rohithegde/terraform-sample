@@ -33,6 +33,6 @@ jobs:
       - run: ls -al ../
       - run: ls -al ../../
       - name: Use local action-a
-        uses: ../.github/actions/action-a
+        uses: ./.github/actions/action-a
       - name: Use local action-b
         uses: ./.github/actions/action-a
