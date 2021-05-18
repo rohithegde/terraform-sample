@@ -6,11 +6,15 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install -g bats
-      - run: bats -v
+      - name: CI
+        if: github.event.action != 'pong'
+        run: |
+          curl -X POST https://api.github.com/repos/rohithegde/pipeline-workflows/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.PAT }} \
+          --data '{"event_type": "ping", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
