@@ -1,19 +1,31 @@
 name: learn-github-actions
 on:
   push:
-    branches:
-      - main
+    branches: [ $default-branch ]
   pull_request:
-    branches:
-      - main
+    branches: [ $default-branch ]
+
+# jobs:
+#   check-bats-version:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: CI
+#         run: |
+#           curl -X POST https://api.github.com/repos/rohithegde/pipeline-workflows/dispatches \
+#           -H 'Accept: application/vnd.github.everest-preview+json' \
+#           -u ${{ secrets.PAT }} \
+#           --data '{"event_type": "ping", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
 
 jobs:
   check-bats-version:
-    runs-on: ubuntu-latest
     steps:
-      - name: CI
-        run: |
-          curl -X POST https://api.github.com/repos/rohithegde/pipeline-workflows/dispatches \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.PAT }} \
-          --data '{"event_type": "ping", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+      - name: Check out repository
+        uses: actions/checkout@v2
+        with:
+          repository: rohithegde/pipeline-workflows
+          ref: refs/heads/main
+          token: ${{ secrets.PAT }}
+      - name: Use local action-a
+        uses: ./.github/actions/action-a
+      - name: Use local action-b
+        uses: ./.github/actions/action-a
