@@ -31,8 +31,7 @@ jobs:
           #path: 'pipeline-workflows'
       - run: echo $GITHUB_WORKSPACE
       - run: ls -al ./.github/actions/
-      - run: ls -al ./.github/actions/pipeline-workflows/.github/actions/
       - name: Use local action-a
-        uses: ./.github/actions/pipeline-workflows/.github/actions/action-a
+        uses: ./.github/actions/action-a
       - name: Use local action-b
-        uses: ./.github/actions/pipeline-workflows/.github/actions/action-b
+        uses: ./.github/actions/action-b
