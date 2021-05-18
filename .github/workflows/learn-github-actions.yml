@@ -32,7 +32,9 @@ jobs:
       - run: echo $GITHUB_WORKSPACE
       - run: ls -al ./
       - run: ls -al ./pipeline-workflows/
+      - run: ls -al ./pipeline-workflows/.github/
+      - run: ls -al ./pipeline-workflows/.github/actions/
       - name: Use local action-a
-        uses: ./pipeline-workflows/.github/actions/action-a
+        uses: ./pipeline-workflows/.github/actions/action-a.yml
       - name: Use local action-b
-        uses: ./pipeline-workflows/.github/actions/action-a
+        uses: ./pipeline-workflows/.github/actions/action-b.yml
