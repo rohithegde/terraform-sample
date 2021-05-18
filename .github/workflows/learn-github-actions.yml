@@ -28,11 +28,12 @@ jobs:
           repository: rohithegde/pipeline-workflows
           ref: refs/heads/main
           token: ${{ secrets.PAT }}
+          path: 'pipeline-workflows'
       - run: echo $GITHUB_WORKSPACE
       - run: ls -al ./
       - run: ls -al ../
       - run: ls -al ../../
       - name: Use local action-a
-        uses: ./.github/actions/action-a
+        uses: ./pipeline-workflows/.github/actions/action-a
       - name: Use local action-b
-        uses: ./.github/actions/action-a
+        uses: ./pipeline-workflows/.github/actions/action-a
